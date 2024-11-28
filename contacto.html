@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpinTrainer - Contacto</title>
+    <style>
+
+        .background-container {
+            background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.8)), 
+                        url('img/Fondo_contacto.jpg') no-repeat center center fixed;
+            padding: 50px;
+            
+            
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #FFFFFF;
+            color: #333;
+            overflow-x: hidden;
+        }
+        header {
+            background: linear-gradient(135deg, #11224E 0%, #F87B1B 100%);
+            color: #FFFFFF;
+            padding: 10px 10px 25px;
+            text-align: center;
+            position: relative;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 3em;
+        }
+        header p {
+            font-size: 1.2em;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #F87B1B;
+            padding: 15px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav .nav-links {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        nav .nav-links li {
+            margin: 0 20px;
+        }
+        nav a {
+            color: #FFFFFF;
+            text-decoration: none;
+            font-weight: bold;
+            position: relative;
+            white-space: nowrap;
+        }
+        nav a::after {
+            content: '';
+            display: block;
+            height: 3px;
+            width: 0;
+            background: #FFFFFF;
+            transition: width 0.3s;
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+        }
+        nav a:hover::after {
+            width: 100%;
+        }
+        nav .menu-icon {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            justify-content: center;
+            align-items: flex-end;
+        }
+        nav .menu-icon div {
+            width: 25px;
+            height: 3px;
+            background: #FFFFFF;
+            margin: 4px 0;
+            transition: background-color 0.3s;
+        }
+        nav .menu-icon div:hover {
+            background: #11224E;
+            transition: background-color 0.3s;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .section-title {
+            color: #F87B1B;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+            border-bottom: 4px solid #F87B1B;
+            display: inline-block;
+            position: relative;
+            animation: slideIn 1s ease-out;
+        }
+        section {
+            margin-bottom: 50px;
+            animation: fadeInUp 1s ease-out;
+        }
+        section p {
+            line-height: 1.6;
+        }
+        footer {
+            background-color: #11224E;
+            color: #FFFFFF;
+            text-align: center;
+            padding: 15px 0;
+            position: relative;
+            width: 100%;
+            bottom: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .footer-content {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+        }
+        .social-links a {
+            margin: 0 10px;
+            display: inline-block;
+        }
+        .social-links img {
+            width: 24px;
+            height: 24px;
+            vertical-align: middle;
+            transition: transform 0.3s;
+        }
+        .container section {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .container section:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.1);
+        }
+        .container section:nth-child(even) {
+            background: #FFF;
+        }
+        a {
+            color: #F87B1B;
+            transition: color 0.3s;
+        }
+        a:hover {
+            color: #11224E;
+        }
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centra el formulario horizontalmente */
+            max-width: 400px; /* Ajusta el ancho del formulario */
+            margin: 0 auto; /* Centra el formulario dentro del contenedor */
+        }
+
+        .contact-form input, .contact-form textarea {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Cambia el texto a los placeholder */
+            padding: 8px; /* Reduce el padding de los inputs */
+            text-decoration-color: black;
+            font-weight: normal;
+            margin: 10px 0;
+            border: 1px solid #000000;
+            border-radius: 5px;
+            font-size: 0.9em; /* Ajusta el tamaño del texto */
+            width: 100%; /* Hace que los inputs ocupen todo el ancho disponible */
+            
+        }
+
+        textarea {
+            resize: none;
+            height: 100px; /* Reduce la altura del textarea */
+        }
+        ::placeholder { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Cambia el texto a los placeholder */
+            
+        }
+        .contact-form button {
+            padding: 8px 12px; /* Reduce el tamaño del botón */
+            background-color: #F87B1B;
+            color: #FFFFFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9em; /* Ajusta el tamaño del texto del botón */
+            transition: background-color 0.3s;
+            margin-top: 15px;
+            width: 40%; /* Hace que el botón ocupe todo el ancho disponible */
+        }
+
+        .contact-form button:hover {
+            background-color: #23469f;
+        }
+
+        .social-links a:hover img {
+            transform: scale(1.1);
+        }
+        .logo {
+            max-width: 250px;
+            width: 100%;
+            height: auto;
+            margin-top: 0;
+        }
+        .success-message {
+            display: none;
+            color: green;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        /* Animaciones */
+        @keyframes slideIn {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        @keyframes fadeInUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+            header p {
+                font-size: 1em;
+            }
+            nav .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                background: rgba(248, 123, 27, 0.8);
+                z-index: 999;
+            }
+            nav .nav-links.active {
+                display: flex;
+            }
+            nav .menu-icon {
+                display: flex;
+            }
+            nav .nav-links li {
+                text-align: center;
+                margin: 10px 0;
+            }
+            .footer-content {
+                transform: none;
+            }
+        }
+    </style>
+    <script>
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+        
+        function clearForm() {
+            document.querySelector('.contact-form').reset();
+        }
+
+        function mostrarAlerta() {
+            alert("¡Tu mensaje ha sido enviado con éxito! Gracias por contactarnos.");
+        }
+    </script>    
+</head>
+<body>
+
+<header>
+    <img src="img/logo.png" alt="SpinTrainer Logo" class="logo">
+</header>
+
+<nav>
+    <div class="menu-icon" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <ul class="nav-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="como-usar.html">¿Cómo Usar?</a></li>
+        <li><a href="como-entrenar.html">¿Cómo Entrenar?</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+    </ul>
+</nav>
+
+<div class="container">
+    <iframe src="formulario-contacto.html" width="100%" height="750px" style="border:none;"></iframe>
+</div>
+
+<footer>
+    <div class="footer-content">
+        &copy; 2024 SpinTrainer
+    </div>
+    <div class="social-links">
+        <a href="https://x.com/TrainerSpin" target="_blank">
+            <img src="img/square-x-twitter.svg" alt="X">
+        </a>
+        <a href="https://facebook.com/tu-perfil" target="_blank">
+            <img src="img/square-facebook.svg" alt="Facebook">
+        </a>
+        <a href="https://instagram.com/tu-perfil" target="_blank">
+            <img src="img/instagram.svg" alt="Instagram">
+        </a>
+    </div>
+</footer>
+
+
+</body>
+</html>
