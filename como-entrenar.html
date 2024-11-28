@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+    <title>SpinTrainer - ¿Cómo entrenar?</title>
+    <style>
+    html, body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #FFFFFF;
+            color: #333;
+        }
+        header {
+            background: linear-gradient(135deg, #11224E 0%, #F87B1B 100%);
+            color: #FFFFFF;
+            padding: 10px 10px 25px; /* Reducido el padding superior */
+            text-align: center;
+            position: relative;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 3em;
+        }
+        header p {
+            font-size: 1.2em;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #F87B1B;
+            padding: 15px 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav .nav-links {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        nav .nav-links li {
+            margin: 0 20px;
+        }
+        nav a {
+            color: #FFFFFF;
+            text-decoration: none;
+            font-weight: bold;
+            position: relative;
+            white-space: nowrap; /* Evita divisiones de línea */
+        }
+        nav a::after {
+            content: '';
+            display: block;
+            height: 3px;
+            width: 0;
+            background: #FFFFFF;
+            transition: width 0.3s;
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+        }
+        nav a:hover::after {
+            width: 100%;
+        }
+        nav .menu-icon {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            justify-content: center; /* Centrar verticalmente los elementos */
+            align-items: flex-end; /* Alinear a la derecha */
+        }
+        nav .menu-icon div {
+            width: 25px;
+            height: 3px;
+            background: #FFFFFF;
+            margin: 4px 0;
+            transition: background-color 0.3s; /* Agrega una transición para el cambio de color */
+        }
+        nav .menu-icon div:hover {
+            background: #11224E; /* Cambia el color al pasar el ratón */
+            transition: background-color 0.3s; /* Añade una transición */
+        }
+        h2 {
+            font-size: 2rem; 
+        }
+
+        h3 {
+            font-size: 1.75rem; 
+        }
+        h4 {
+            font-size: 1.3rem; 
+        }
+        h5 {
+            font-size: 1.25rem; 
+        }
+
+        .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.container section {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.container section:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.1);
+}
+.container section:nth-child(even) {
+    background: #FFF;
+}
+
+.section-title {
+    color: #F87B1B;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+    border-bottom: 4px solid #F87B1B;
+    display: inline-block;
+    position: relative;
+    animation: slideIn 1.5s ease-out;
+}
+.section-subtitle {
+    color: #0b0682;
+    margin-bottom: 10px;
+    border-bottom: 4px solid #0b0682;
+    display: inline-block;
+    position: relative;
+    animation: slideIn 1s ease-out;
+}
+
+.section-subtitle1 {
+    color: #F87B1B;
+    margin-bottom: 10px;
+    border-bottom: 4px solid #F87B1B;
+    display: inline-block;
+    position: relative;
+    animation: slideIn 1s ease-out;
+}
+
+.container1 {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 5px 20px;
+}
+
+section {
+    margin-bottom: 50px;
+    animation: fadeInUp 1s ease-out;
+}
+
+section p {
+    line-height: 1.6;
+}
+
+footer {
+    background-color: #11224E;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 15px 0;
+    position: relative;
+    width: 100%;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-content {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.social-links {
+    margin-top: 10px;
+}
+
+.social-links a {
+    margin: 0 10px;
+    display: inline-block;
+}
+
+.social-links img {
+    width: 24px; /* Ajusta el tamaño del icono((((((((()()()sea necesario */
+    height: 24px;
+    vertical-align: middle;
+    transition: transform 0.3s;
+}
+
+.content-container {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    background: linear-gradient(135deg, #11224E 0%, #F87B1B 100%);
+}
+.content-container1 {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    background: linear-gradient(135deg, #11224E 0%, #F87B1B 100%);
+    
+}
+
+.content-container:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.1);
+}
+
+.images-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.images-container1 {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+
+.feature-content {
+    text-align: left;
+    padding: 1px;
+}
+
+.feature-title {
+    color: #ffffff;
+}
+.feature-title1 {
+    color: #11224E;
+}
+
+.feature-description {
+    font-size: 1.12em;
+    line-height: 1;
+    color: #ffffff;
+}
+.feature-description1 {
+    text-align: justify;
+    margin-bottom: 1em;
+}
+
+.imagen {
+    background: white;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    text-align: center;
+    flex: 1;
+    max-width: calc(33.33% - 20px);
+    margin: 10px;
+    overflow: hidden;
+}
+
+.imagen img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    max-width: 100%;
+    max-height: 500px;
+    border-radius: 5px;
+    display: block;
+}
+
+a {
+    color: #F87B1B;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #11224E;
+}
+
+.social-links a:hover img {
+    transform: scale(1.1); /* Efecto de agrandar el icono al pasar el cursor */
+}
+.logo {
+    max-width: 250px; /* Ajusta este valor para hacer la imagen más grande o más pequeña */
+    width: 100%;
+    height: auto;
+    margin-top: 0; /* Asegura que no haya margen superior */
+}
+.image-title-container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    animation: slideIn 1s ease-out forwards, fadeInUp 1s ease-out forwards;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.image-title-container img {
+    width: 100%; /* La imagen ocupa todo el ancho del contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+    display: block; /* Elimina espacios en línea */
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+.image-title {
+    position: absolute;
+    top: 9%; /* Centra verticalmente */
+    left: 50%; /* Centra horizontalmente */
+    transform: translate(-50%, -50%); /* Ajusta el posicionamiento */
+    background: rgba(255, 255, 255, 0.5); /* Fondo semi-transparente para contraste */
+    padding: 20px; /* Espacio alrededor del texto */
+    border-radius: 10px; /* Bordes redondeados */
+    font-size: 50px; /* Tamaño del texto */
+    text-align: center;
+    font-weight: bold;
+    color: #11224E;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+@media (max-width: 900px) {
+    .image-title-container {
+        width: 100%; /* Asegura que el contenedor ocupe todo el ancho disponible en pantallas pequeñas */
+    }
+
+    .image-title {
+        font-size: 1.2em; /* Ajusta el tamaño del texto para pantallas más pequeñas */
+        padding: 8px 16px; /* Ajusta el padding para pantallas más pequeñas */
+    }
+    
+}
+
+
+/* Animaciones */
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    html, body {
+        overflow-x: hidden;
+    }
+    header h1 {
+        font-size: 2em;
+    }
+    header p {
+        font-size: 1em;
+        text-align: justify;
+    }
+    nav {
+        display: flex;
+        justify-content: center;
+        background-color: #F87B1B;
+        padding: 15px 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+    nav.fixed {
+        position: fixed; /* Fijo en la parte superior al hacer scroll */
+        top: 0;
+        width: 89%;
+    }
+    nav .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background: rgba(248, 123, 27, 0.8); /* Fondo semi-transparente del color #F87B1B */
+        z-index: 999;
+    }
+    nav .nav-links.active {
+        display: flex;
+    }
+    nav .menu-icon {
+        display: flex;
+    }
+    nav .nav-links li {
+        text-align: center;
+        margin: 10px 0;
+    }
+    .container {
+        padding: 20px 10px;
+    }
+    .images-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .imagen {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+    .footer-content {
+        transform: none;
+    }    
+}   
+</style>
+</head>
+<body>
+
+    <header>
+        <img src="img/logo.png" alt="SpinTrainer Logo" class="logo">
+    </header>
+    
+    <nav>
+        <div class="menu-icon" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="como-usar.html">¿Cómo Usar?</a></li>
+            <li><a href="como-entrenar.html">¿Cómo Entrenar?</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <section>
+            <h1 class="section-title">Bienvenido a la guía de entrenamiento de SpinTrainer</h1>
+            <p>Maximiza tus entrenamientos de spinning con SpinTrainer. Aquí encontrarás consejos y estrategias para ayudarte a mejorar tu rendimiento y alcanzar tus objetivos de fitness. Aprende cómo estructurar tus sesiones y utiliza nuestras herramientas para un entrenamiento más efectivo.</p>
+        </section>
+    </div>    
+<div class="container1">
+    <section>
+        <h2 class="section-subtitle">Posición de manos</h2>
+    </section>
+</div>
+<div class="container1">
+<section id="suscribete" class="content-container">
+    <div class="container images-container">
+        <div class="imagen"data-aos="fade-right">
+            <img src="img/2 (3).png" alt="">
+            <div class="feature-content">
+                <h5 class="feature-title1">Posición de manos 1</h5>
+                <div class="feature-description1">La Posición de manos 1 es para Plano Sentado cuando la intensidad es de baja moderada. Esto incluye entrada en calor, recuperación después de
+                    intervalos
+                    ,ejercicios de resistencia y la vuelta a la calma ﬁnal. Practicar esta posición de manosenseña a los alumnos la habilidad de la relajación y permite el ritmo y la conexión conla bicicleta.</div>
+            </div>
+        </div> 
+        <div class="imagen"data-aos="fade-left">
+            <img src="img/2 (1).png" alt="">
+            <div class="feature-content">
+                <h5 class="feature-title1">Indicar al dirigir:</h5>
+                <div class="feature-description1">• Manos descansan en el centro del manillar con el peso en los bordesexternos de las manos para mantener la circulación de las muñecas y laspalmas.</div>
+                <div class="feature-description1">• Codos ligeramente ﬂexionados, hombros relajados y la vista haciaadelante.</div> 
+            </div>
+        </div>   
+    </div>
+</section>
+</div>
+<div class="container1">
+<section id="suscribete" class="content-container">
+    <div class="container images-container">
+        <div class="imagen"data-aos="fade-right">
+            <img src="img/2 (5).png" alt="">
+            <div class="feature-content">
+                <h5 class="feature-title1">Posición de manos 2</h5>
+                <div class="feature-description1">La Posición de manos 2 crea más estabilidad y abre el pecho para el intercambio óptimo de aire. La mayor parte del tiempo se lleva a cabo en esta posición. La posición de manos 2 se utiliza para el Plano Sentado, Plano de Pie, Escalada Sentado, Saltos, Correr en Montaña, Saltos en Montaña, Sprints en Plano y Sprints en Montaña.</div>
+            </div>
+        </div> 
+        <div class="imagen"data-aos="fade-left">
+            <img src="img/2 (6).png" alt="">
+            <div class="feature-content">
+                <h5 class="feature-title1">Indicar al dirigir:</h5>
+                <div class="feature-description1">• Colocar las palmas sobre el manillar con los pulgares descansando en la parte superior o interior de la curva central del manillar.</div>
+                <div class="feature-description1">• Dedos orientados hacia abajo, nudillos hacia adelante y mantener las muñecas neutrales.</div> 
+                <div class="feature-description1">• Mantener una ligera ﬂexión en los codos, con los hombros relajados y la vista hacia adelante.</div>
+            </div>
+        
+        </div>   
+    </div>
+</section>
+</div>
+<div class="container1">
+<section id="suscribete" class="content-container">
+    <div class="container images-container">
+            <div class="imagen"data-aos="fade-right">
+                <img src="img/2 (7).png" alt="">
+                <div class="feature-content">
+                    <h5 class="feature-title1">Posición de manos 2.5</h5>
+                    <div class="feature-description1">La Posición de manos 2.5 es otra opción para cualquier movimiento donde un alumno usaría la Posición de manos 2. Quienes requieran un mayor alcance pueden deslizar las manos hacia el exterior del manillar.</div>
+                </div>
+            </div> 
+            <div class="imagen"data-aos="fade-left">
+                <img src="img/2 (8).png" alt="">
+                <div class="feature-content">
+                    <h5 class="feature-title1">Indicar al dirigir:</h5>
+                    <div class="feature-description1">• Mantener los hombros relajados, los codos levemente ﬂexionados, las muñecas en alineación neutral y la vista hacia adelante.</div>
+                    <div class="feature-description1">• Tomar suavemente el manillar con los pulgares hacia el interior de las barras, manteniendo las muñecas neutrales.</div> 
+                </div>
+            </div>   
+    </div>
+</section>
+</div>
+<div class="container1">
+    <section id="suscribete" class="content-container">
+        <div class="container images-container">
+                <div class="imagen"data-aos="fade-right">
+                    <img src="img/2 (3).png" alt="">
+                    <div class="feature-content">
+                        <h5 class="feature-title1">Posición de manos 3</h5>
+                        <div class="feature-description1">La Posición de manos 3 se utiliza sólo cuando se está de pie con una resistencia alta y cuando la intensidad es de alta a muy alta. Se utiliza para Subidas de pie, Saltos en Montaña, Sprints en Plano y Sprints en Montaña.</div>
+                    </div>
+                </div> 
+                <div class="imagen"data-aos="fade-left">
+                    <img src="img/2 (1).png" alt="">
+                    <div class="feature-content">
+                        <h5 class="feature-title1">Indicar al dirigir:</h5>
+                        <div class="feature-description1">• Aumentar la resistencia a alta.</div>
+                        <div class="feature-description1">• Ponerse de pie y agarrar el extremo del manillar con las palmas hacia adentro ylos nudillos hacia fuera.</div> 
+                        <div class="feature-description1">• Envolver las barras con los dedos suavemente, con los pulgares sobre losextremos.</div>
+                        <div class="feature-description1">• Ajustar la resistencia según sea necesario para mantener un pedaleo suave ymantener un agarre relajado en el manillar.</div>
+                    </div>
+                </div>   
+        </div>
+    </section>
+</div>
+<div class="container1">
+    <section>
+        <h2 class="section-subtitle">Tipos de Ejercicios</h2>
+    </section>
+</div>
+<div class="container1">
+    <section id="suscribete" class="content-container">
+        <h3 class="section-subtitle1">Plano Sentado</h3>
+        <h4 class="feature-title">Cadencia: 80–110 RPM; Posición de manos: 1 o 2.5</h4>
+        <div class="container images-container">
+            <div class="imagen" data-aos="fade-right">
+                <img src="img/2 (2).png" alt="">
+                <div class="feature-content"></div>
+            </div>
+            <div class="imagen"data-aos="fade-left">
+                <div class="feature-content">
+                    <br>
+                    
+                    <h5 class="feature-title1">Indicar al dirigir:</h5>
+                    <img style="width: 100px; position: absolute; left:220px; top: 20px;" src="img/A1.png">
+                    <br>
+                    <div class="feature-description1">• Una resistencia de liviana a moderada en la rueda volante. Plano Sentado puede ser utilizado para todo, desde pedaleo de recuperación hasta intervalos de trabajo.</div>
+                    <div class="feature-description1">• Colocar las manos en la Posición 1, 2 o 2.5, manteniendo los codos relajados, los hombros alejados de las orejas y la vista hacia adelante.</div>
+                    <div class="feature-description1">• Los isquiones sobre la parte más ancha del sillín y mantener la pelvis en una posición neutral.</div>
+                    <div class="feature-description1">• Mantenerse conectado a todo el movimiento circular del pedaleo. Aplicar una cantidad consistente de esfuerzo a lo largo de cada pedalada.</div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+</div>
+<div class="container1">
+    <section id="suscribete" class="content-container">
+        <h3 class="section-subtitle1">Plano de Pie/Correr</h3>
+        <h4 class="feature-title">Cadencia: 80–110 RPM; Posición de manos: 2 o 2.5</h4>
+        <div class="container images-container">
+            <div class="imagen"data-aos="fade-right">
+                <img src="img/2 (9).png" alt="">
+                <div class="feature-content">
+                </div>
+            </div>
+            <div class="imagen"data-aos="fade-left">
+                <div class="feature-content">
+                    <br>
+                    <img style="width: 100px; position: absolute; left:220px; top: 20px;" src="img/B1.png">
+                    <h5 class="feature-title1">Indicar al dirigir:</h5>
+                    <br>
+                    <div class="feature-description1">• Elegir la resistencia suﬁciente como para controlar la inercia del peso corporal sobre los pedales.</div>
+                    <div class="feature-description1">• Colocar las manos en la Posición 2 ó 2.5 y ponerse de pie.</div>
+                </div>
+            </div>     
+        </div>
+        <div class="feature-description"><b>Nota:</b> Apoyarse sobre las manos o balancear lateralmente la cadera o el cuerpo impide que las piernas trabajen de manera eﬁciente. Corrije esto, indicando codos ligeramente ﬂexionados, hombros delante de la cadera y el peso centrado sobre los pedales. Los alumnos deben evitar el rebote excesivo o hundir mover las caderas de lado a lado, durante el Plano de Pie.</div>
+    </section>
+</div>
+<div class="container1">
+    <section id="suscribete" class="content-container">
+        <h3 class="section-subtitle1">Saltos</h3>
+        <h4 class="feature-title">Cadencia: 80–110 RPM; Posición de manos: 2 o 2.5</h4>
+        <div class="container images-container">
+            <div class="imagen"data-aos="fade-right">
+                <img src="img/2 (10).png" alt="">
+                <div class="feature-content">
+                </div>
+            </div>
+            <div class="imagen"data-aos="fade-left">
+                <div class="feature-content">
+                    <br>
+                    <img style="width: 100px; position: absolute; left:220px; top: 20px;" src="img/F1.png">
+                    <h5 class="feature-title1">Indicar al dirigir:</h5>
+                    <br>
+                    <div class="feature-description1">• Mantener las manos en la Posición 2 ó 2.5 y seleccionar una resistencia moderada.</div>
+                    <div class="feature-description1">• Elegir una cadencia confortable y mantenerla al ponerse de pie. Mantener siempre el peso del cuerpo sobre los pedales.</div>
+                    <div class="feature-description1">• Al estar preparados, volver a sentarse. Transﬁriendo toda la humanidad sobre el sillín.</div>
+                    <div class="feature-description1">• Concentrarse en transiciones suaves desde el sillín, al dejarlo y al volver asentarse.</div>     
+                </div>
+            </div>     
+            
+        </div>
+        <div class="feature-description"><b>Nota:</b> usar los brazos o empujar el cuerpo hacia adelante es una técnica pobre y puede ser un signo de fatiga.</div>
+    </section>
+</div>
+<div class="container1">
+    <section id="suscribete" class="content-container">
+        <h3 class="section-subtitle1">Escalada Sentado</h3>
+        <h4 class="feature-title">Cadencia: 60–80 RPM; Posición de manos: 2 o 2.5</h4>
+        <div class="container images-container">
+            <div class="imagen"data-aos="fade-right">
+                <img src="img/2 (11).png" alt="">
+                <div class="feature-content">
+                </div>
+            </div>
+            <div class="imagen"data-aos="fade-left">
+                <div class="feature-content">
+                    <br>
+                    <img style="width: 100px; position: absolute; left:220px; top: 20px;" src="img/D1.png">
+                    <h5 class="feature-title1">Indicar al dirigir:</h5>
+                    <br>
+                    <div class="feature-description1">• La resistencia a moderada/alta para crear una montaña.</div>
+                    <div class="feature-description1">• Colocar las manos en la Posición 2 ó 2.5, manteniendo los codos relajados,los hombros alejados de las orejas y la vista hacia el frente.</div>
+                    <div class="feature-description1">• Los glúteos pueden posicionarse ligeramente hacia la parte trasera del sillín para potenciar el uso de losmúsculos isquiotibiales.</div>
+                    
+                </div>
+            </div>     
+            
+        </div>
+        <div class="feature-description"><b>Nota:</b> Presionar excesivamente fuerte los pedales hacia abajo o inclinarse mucho de lado a lado sugiere demasiada resistencia. Debes corregirlo, indicando a los alumnos que aumenten la cadencia o reduzcan la resistencia (chequeo de la cadencia) hasta que el pedaleo se suavice y se haga más ﬂuido.</div>
+    </section>
+</div>
+<div class="container1">
+    <section id="suscribete" class="content-container">
+        <h3 class="section-subtitle1">Escalada de Pie</h3>
+        <h4 class="feature-title">Cadencia: 60–80 RPM; Posición de manos: 3</h4>
+        <div class="container images-container">
+            <div class="imagen"data-aos="fade-right">
+                <img src="img/2 (12).png" alt="">
+                <div class="feature-content">
+                </div>
+            </div>
+            <div class="imagen"data-aos="fade-left">
+                <div class="feature-content">
+                    <br>
+                    <img style="width: 100px; position: absolute; left:220px; top: 20px;" src="img/E1.png">
+                    <h5 class="feature-title1">Indicar al dirigir:</h5>
+                    <br>
+                    <div class="feature-description1">• Aumentar la resistencia (alta) para que el giro del pedal se sienta un poco difícil de mantener.</div>
+                    <div class="feature-description1">• Llevar una mano a la vez hasta la Posición de manos 3 y ponerse de pie sobre los pedales.</div>
+                    <div class="feature-description1">• Mantener la cadera equilibrada y el balance sobre los pedales.</div>
+                       
+                </div>
+            </div>     
+           
+        </div>
+        <div class="feature-description"><b>Nota:</b> El movimiento lateral excesivo es un desperdicio de energía. Indica que la parte superior del cuerpo esté relajada con descarga de movimiento lateral para que las piernas puedan trabajar adecuadamente. Indica que se revise la cadencia para asegurar los niveles de resistencia adecuados.</div>
+    </section>
+</div>
+<div class="container1">
+    <section id="suscribete" class="content-container">
+        <h3 class="section-subtitle1">Correr en Montaña</h3>
+        <h4 class="feature-title">Cadencia: 60–80 RPM; Posición de manos: 2 o 2.5</h4>
+        <div class="container images-container">
+            <div class="imagen"data-aos="fade-right">
+                <img src="img/2 (13).png" alt="">
+                <div class="feature-content">
+                </div>
+            </div>
+            <div class="imagen"data-aos="fade-left">
+                <div class="feature-content">
+                    <br>
+                    <img style="width: 100px; position: absolute; left:220px; top: 20px;" src="img/I1.png">
+                    <h5 class="feature-title1">Indicar al dirigir:</h5>
+                    <br>
+                    <div class="feature-description1">• Colocar las manos en la Posición 2 ó 2.5 y ajustar la resistencia amoderada/alta para que se sienta como una montaña.</div>
+                    <div class="feature-description1">• Estabilizar la cadencia entre 60-80 RPM.</div>
+                    <div class="feature-description1">• Mantener la Posición de manos 2 ó 2.5 y manteniendo el impulso en las piernas, ponerse de pie, llevando el peso del cuerpo sobre los pedales.</div>
+                    <div class="feature-description1">• Mantener el cuerpo estable para mantener una cadencia uniforme y suave.</div>     
+                </div>
+            </div>     
+           
+        </div>
+        <div class="feature-description"><b>Nota:</b> Los alumnos que se inclinan sobre el manillar pueden necesitar una modiﬁcación o una indicación técnica. Corríjelos ofreciéndoles los movimientos Plano de Pie o Escalada Sentado, oindícales cómo lograr una postura más vertical.</div>
+    </section>
+</div>
+<div class="container1">
+    <section id="suscribete" class="content-container">
+        <h3 class="section-subtitle1">Saltos en Montaña</h3>
+        <h4 class="feature-title">Cadencia: 60–80 RPM; Posiciones de manos: 2, 2.5 y 3</h4>
+        <div class="container images-container">
+            <div class="imagen"data-aos="fade-right">
+                <img src="img/2 (14).png" alt="">
+                <div class="feature-content">
+                </div>
+            </div>
+            <div class="imagen"data-aos="fade-left">
+                <div class="feature-content">
+                    <br>
+                    <img style="width: 100px; position: absolute; left:220px; top: 20px;" src="img/G1.png">
+                    <h5 class="feature-title1">Indicar al dirigir:</h5>
+                    <br>
+                    <div class="feature-description1">• Mantener la Posición de manos 2 ó 2.5 y agregar resistencia lentamente para simular una montaña cada vez más empinada.</div>
+                    <div class="feature-description1">• Cuando el giro del pedal se sienta forzado, ponerse de pie, realizando la transición a la Posición de manos 3.Puedes elegir mantener o aumentar la cadencia.</div>
+                    <div class="feature-description1">• Sentir el pedaleo suave y mantenerlo durante algunos segundos más.</div>
+                    <div class="feature-description1">• Hacer la transición de regreso al sillín, volviendo a la Posición de manos 2 ó 2.5, y repetir.</div>     
+                </div>
+            </div>     
+           
+        </div>
+        <div class="feature-description"></div>
+    </section>
+</div>
+<div class="container1">
+    <section id="suscribete" class="content-container">
+        <h3 class="section-subtitle1">Sprint en Plano</h3>
+        <h4 class="feature-title">Cadencia: 80–110 RPM; Posiciones de manos: 2, 2.5 y 3</h4>
+        <div class="container images-container">
+            <div class="imagen"data-aos="fade-right">
+                <img src="img/2 (15).png" alt="">
+                <div class="feature-content">
+                </div>
+            </div>
+            <div class="imagen"data-aos="fade-left">
+                <div class="feature-content">
+                    <br>
+                    <img style="width: 100px; position: absolute; left:220px; top: 20px;" src="img/C1.png">
+                    <h5 class="feature-title1">Indicar al dirigir:</h5>
+                    <br>
+                    <div class="feature-description1">• Comenzar en Plano Sentado con la Posición de manos 2 ó 2.5.</div>
+                    <div class="feature-description1">• Aumentar la resistencia a moderadamentepesada.</div>
+                    <div class="feature-description1">• Levantarse del sillín, adoptar la Posición de manos 3 y pedalear durante 3 a 5 segundos para superar la carga de la resistencia con el ﬁn de alcanzar el extremo superior de la gama de la cadencia.</div>
+                    <div class="feature-description1">• Regresar al sillín en la Posición de manos 2 ó 2.5 y mantener el impulso y el esfuerzo de alta intensidad, completando el sprint durante 5 a 25 segundos más (la duración depende del objetivo del perﬁl).</div>
+                    <div class="feature-description1">• Para recuperarse, reducir la resistencia liviana y pedalear suavemente. Trata de encontrar un ritmo sostenible para que la frecuencia cardíaca pueda recuperarse hasta el extremo inferior de la zona de entrenamiento buscada.</div>     
+                </div>
+            </div>     
+           
+        </div>
+        <div class="feature-description"><b>Nota:</b> Si un alumno excede las 110 RPM, indícale que aplique más resistencia la próxima vez que haga un Sprint. Los alumnos deben prepararse para los Sprints en Plano estando descansados, hidratados, saludables y sin lesiones.</div>
+    </section>
+</div>
+<div class="container1">
+    <section id="suscribete" class="content-container">
+        <h3 class="section-subtitle1">Sprints en Montaña</h3>
+        <h4 class="feature-title">Cadencia: 60–80 RPM; Posiciones de manos: 2, 2.5 y 3</h4>
+        <div class="container images-container">
+            <div class="imagen"data-aos="fade-right">
+                <img src="img/2 (16).png" alt="">
+                <div class="feature-content">
+                </div>
+            </div>
+            <div class="imagen"data-aos="fade-left">
+                <div class="feature-content">
+                    <br>
+                    <img style="width: 100px; position: absolute; left:220px; top: 20px;" src="img/H1.png">
+                    <h5 class="feature-title1">Indicar al dirigir:</h5>
+                    <br>
+                    <div class="feature-description1">• Comenzar en una Escalada Sentado.</div>
+                    <div class="feature-description1">• Aumentar la resistencia a alta.</div>
+                    <div class="feature-description1">• Dejar de golpe el sillín para llegar a la Posición de manos 3 y alcanzar el extremo superior de la gama de la cadencia, e ir a toda velocidad durante 5 a 30 segundos.</div>
+                    <div class="feature-description1">• Recuperarse en Plano Sentado con una resistencia moderada.</div>     
+                </div>
+            </div>     
+           
+        </div>
+        <div class="feature-description"></div>
+    </section>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        AOS.init();
+    });
+
+    function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+    }
+</script>
+<script>
+    window.addEventListener('scroll', function() {
+        var nav = document.querySelector('nav');
+        var headerHeight = document.querySelector('header').offsetHeight;
+
+        if (window.scrollY > headerHeight) {
+            nav.classList.add('fixed');
+        } else {
+            nav.classList.remove('fixed');
+        }
+    });
+</script>
+<footer>
+    <div class="footer-content">
+        &copy; 2024 SpinTrainer
+    </div>
+    <div class="social-links">
+        <a href="https://x.com/TrainerSpin" target="_blank">
+            <img src="img/square-x-twitter.svg" alt="X">
+        </a>
+        <a href="https://facebook.com/tu-perfil" target="_blank">
+            <img src="img/square-facebook.svg" alt="Facebook">
+        </a>
+        <a href="https://instagram.com/tu-perfil" target="_blank">
+            <img src="img/instagram.svg" alt="Instagram">
+        </a>
+    </div>
+</footer>
+
+</body>
+</html>
