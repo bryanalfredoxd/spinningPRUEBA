@@ -1,0 +1,256 @@
+<style>
+/* Contenedor principal */
+    .contact-container {
+        display: flex;
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 20px;
+         /* Añadir animación */
+    opacity: 0; /* Estado inicial */
+    transform: translateY(20px); /* Inicia 20px abajo */
+    animation: fadeInUp 1s ease-out forwards;
+    }
+ 
+/* Definición de la animación fadeInUp */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+    /* Columna izquierda - Información de contacto */
+    .contact-info {
+        background-color: #11224E; /* Color púrpura */
+        color: #ffffff;
+        padding: 30px;
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        border-top-left-radius: 10%;
+        border-end-start-radius: 10%;
+    }
+
+    input {
+        border-color: black;
+        border-color: black;
+        
+    }
+
+    .contact-info h2 {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    .contact-info .contact-item h3 {
+        font-size: 16px;
+        margin-bottom: 5px;
+    }
+
+    .contact-info a {
+        color: #FFDD44; /* Color amarillo */
+        text-decoration: none;
+    }
+
+    .contact-info address {
+        font-style: normal;
+    }
+
+    /* Íconos de redes sociales */
+    .social-icons {
+        margin-top: 20px;
+    }
+
+    .social-icons a {
+        color: #ffffff;
+        margin-right: 10px;
+        font-size: 20px;
+    }
+
+    /* Columna derecha - Formulario de contacto */
+    .contact-form-container {
+        width: 60%;
+        padding: 30px;
+        background-color: #ffffff;
+        border-top-right-radius: 10%;
+        border-end-end-radius: 10%;
+        flex: 1;
+        padding: 20px;
+        border: 2px solid #11224E; /* Borde azul en la parte izquierda */
+        
+    }
+
+    .contact-form-container button {
+        justify-content: center;
+        display: flex;
+    }
+
+    .contact-form-container h2 {
+        font-size: 24px;
+        color: #333333;
+    }
+
+    .contact-form-container p {
+        font-size: 14px;
+        color: #333333;
+    }
+
+    .contact-form-container a {
+        color: #5B2C90;
+        text-decoration: none;
+    }
+
+    .contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 20px;
+    }
+
+    .contact-form label {
+        font-size: 14px;
+        color: #333333;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 14px;
+        resize: none;
+    }
+
+    .contact-form textarea {
+        resize: vertical;
+        height: 100px;
+        resize: none;
+    }
+
+    .contact-form button {
+        background-color: #F87B1B;
+        color: #ffffff;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        display: flex;
+        justify-content: center;
+    }
+
+    .contact-form button:hover {
+        background-color: #11224E;
+    }
+
+    body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #FFFFFF;
+            color: #333;
+            overflow-x: hidden;
+        }
+        .success-message {
+            display: none;
+            color: green;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .section-title {
+            color: #F87B1B;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+            border-bottom: 4px solid #F87B1B;
+            display: inline-block;
+            position: relative;
+            animation: slideIn 1s ease-out;
+        }
+
+        button {
+            
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            
+        }
+</style>    
+
+
+<div class="contact-container">
+    <!-- Columna Izquierda - Información de contacto -->
+    <div class="contact-info">
+        <h2>Ponerse en contacto</h2>
+        <p>Si tienes alguna pregunta o necesitas más información, por favor, no dudes en contactarnos.</p>
+
+        <div class="contact-item">
+            <h3>📧 CORREO</h3>
+            <p>Nuestro amable equipo está aquí para ayudar.</p>
+            <a href="mailto:hola@nuestraempresa.com">hola@colocarcorreo.com</a>
+        </div>
+
+
+        <div class="contact-item">
+            <h3>📞 TELÉFONO</h3>
+            <p>Lunes a viernes de 8 am a 5 am</p>
+            <a href="tel:+1555000000">+1 (555) 000-000</a>
+        </div>
+
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-pinterest"></i></a>
+        </div>
+    </div>
+
+    <!-- Columna Derecha - Formulario de contacto -->
+    <div class="contact-form-container">
+        <h2>Contacto</h2>
+        
+
+        <form action="https://formsubmit.co/0a6c611c3a372191a061ada611389229" method="POST" class="contact-form" onsubmit="mostrarAlerta()">
+            <label for="name">Nombre</label>
+            <input style="border-color: black;" type="text" id="name" name="Nombre" placeholder="Nombre" required>
+
+            <label for="email">Correo electrónico</label>
+            <input style="border-color: black;" type="email" id="email" name="Correo electrónico" placeholder="Correo electrónico" required>
+
+            <label for="phone">Número de teléfono</label>
+            <input style="border-color: black;" type="tel" id="phone" name="Número de teléfono" placeholder="Número de teléfono" required>
+
+            <label for="message">Mensaje</label>
+            <textarea style="border-color: black;"id="message" name="Mensaje" placeholder="Mensaje" rows="5" required></textarea>
+        <div style="justify-content: center; display: flex;">
+            <button style="width: 100px;" type="submit">Enviar</button>
+        </div>            
+
+            <!-- Campos ocultos necesarios para formsubmit.co -->
+            <input class="boton" type="hidden" name="_next" value="http://127.0.0.1:5501"> 
+            <input class="boton"  type="hidden" name="_captcha" value="false">
+        </form>
+        
+        <p class="success-message">¡El mensaje fue enviado con éxito!</p>
+    </div>
+</div>
+
+
+<script>
+    // Función para mostrar un mensaje de éxito al enviar el formulario
+    function mostrarAlerta() {
+        alert("¡El formulario fue enviado con éxito!");
+        window.location.href = "contacto.html"; // Recarga la página después de aceptar la alerta
+    }
+
+</script>
+
+  
