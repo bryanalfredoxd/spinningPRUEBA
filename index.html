@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpinTrainer - Bienvenido</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #FFFFFF;
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #11224E 0%, #F87B1B 100%);
+            color: #FFFFFF;
+            padding: 10px 10px 25px; /* Reducido el padding superior */
+            text-align: center;
+            position: relative;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 3em;
+        }
+        header p {
+            font-size: 1.2em;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #F87B1B;
+            padding: 15px 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav .nav-links {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        nav .nav-links li {
+            margin: 0 20px;
+        }
+        nav a {
+            color: #FFFFFF;
+            text-decoration: none;
+            font-weight: bold;
+            position: relative;
+            white-space: nowrap; /* Evita divisiones de línea */
+        }
+        nav a::after {
+            content: '';
+            display: block;
+            height: 3px;
+            width: 0;
+            background: #FFFFFF;
+            transition: width 0.3s;
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+        }
+        nav a:hover::after {
+            width: 100%;
+        }
+        nav .menu-icon {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            justify-content: center; /* Centrar verticalmente los elementos */
+            align-items: flex-end; /* Alinear a la derecha */
+        }
+        nav .menu-icon div {
+            width: 25px;
+            height: 3px;
+            background: #FFFFFF;
+            margin: 4px 0;
+            transition: background-color 0.3s; /* Agrega una transición para el cambio de color */
+        }
+        nav .menu-icon div:hover {
+            background: #11224E; /* Cambia el color al pasar el ratón */
+            transition: background-color 0.3s; /* Añade una transición */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .section-title {
+            color: #F87B1B;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+            border-bottom: 4px solid #F87B1B;
+            display: inline-block;
+            position: relative;
+            animation: slideIn 1s ease-out;
+        }
+        .section-subtitle {
+            color: #11224E;
+            margin-bottom: 10px;
+            font-size: 1.5em;
+        }
+        section {
+            margin-bottom: 50px;
+            animation: fadeInUp 1s ease-out;
+        }
+        section p {
+            line-height: 1.6;
+            font-size: 1em;
+        }
+        footer {
+            background-color: #11224E;
+            color: #FFFFFF;
+            text-align: center;
+            padding: 15px 0;
+            position: relative;
+            width: 100%;
+            bottom: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .footer-content {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+        }
+        .social-links a {
+            margin: 0 10px;
+            display: inline-block;
+        }
+        .social-links img {
+            width: 24px; /* Ajusta el tamaño del icono según sea necesario */
+            height: 24px;
+            vertical-align: middle;
+            transition: transform 0.3s;
+        }
+
+        .container section {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .container section:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.1);
+        }
+        .container section:nth-child(even) {
+            background: #FFF;
+        }
+        a {
+            color: #F87B1B;
+            transition: color 0.3s;
+        }
+        a:hover {
+            color: #11224E;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 10px;
+            color: #FFFFFF;
+            background-color: #F87B1B;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #11224E;
+            color: #FFFFFF;
+        }
+        .info-box {
+            background: #FFFFFF;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .info-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.1);
+        }
+        .info-box h3 {
+            margin-top: 0;
+            color: #11224E;
+        }
+
+        .social-links a:hover img {
+            transform: scale(1.1); /* Efecto de agrandar el icono al pasar el cursor */
+        }
+
+        .logo {
+            max-width: 250px; /* Ajusta este valor para hacer la imagen más grande o más pequeña */
+            width: 100%;
+            height: auto;
+            margin-top: 0; /* Asegura que no haya margen superior */
+        }
+        /* Animaciones */
+        @keyframes slideIn {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        @keyframes fadeInUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+            header p {
+                font-size: 1em;
+            }
+            nav .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                background: rgba(248, 123, 27, 0.8); /* Fondo semi-transparente del color #F87B1B */
+                z-index: 999;
+            }
+            nav .nav-links.active {
+                display: flex;
+            }
+            nav .menu-icon {
+                display: flex;
+            }
+            nav .nav-links li {
+                text-align: center;
+                margin: 10px 0;
+            }
+            .footer-content {
+                transform: none;
+            }
+        }
+    </style>
+    <script>
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+    </script>
+</head>
+<body>
+
+<header>
+    <img src="img/logo.png" alt="SpinTrainer Logo" class="logo">
+</header>
+
+<nav>
+    <div class="menu-icon" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <ul class="nav-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="como-usar.html">¿Cómo Usar?</a></li>
+        <li><a href="como-entrenar.html">¿Cómo Entrenar?</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+    </ul>
+</nav>
+
+<div class="container">
+    <section>
+        <h1 class="section-title">Bienvenido a SpinTrainer</h1>
+        <p>La herramienta perfecta para optimizar tu experiencia de entrenamiento de spinning. Con nuestra aplicación, tanto entrenadores como entrenados pueden sacar el máximo provecho de cada sesión de Spinning.</p>
+    </section>
+    <section>
+        <h2 class="section-subtitle">Maximiza tu potencial</h2>
+        <p>Descubre cómo maximizar tu potencial como instructor de spinning con nuestra aplicación. Aprende cómo utilizar todas las funciones y herramientas disponibles para crear rutinas efectivas y motivadoras para tus alumnos.</p>
+        <a href="como-usar.html" class="btn">Cómo Usar la App</a>
+    </section>
+    <section>
+        <h2 class="section-subtitle">Entrena con eficacia</h2>
+        <p>Conoce el significado de cada símbolo y cada icono dentro de la aplicación para aprovechar al máximo tu entrenamiento de spinning. Descubre cómo interpretar la información proporcionada y cómo utilizarla para alcanzar tus objetivos de spinning de manera efectiva.</p>
+        <a href="como-entrenar.html" class="btn">Cómo Entrenar con la App</a>
+    </section>
+</div>
+
+<footer>
+    <div class="footer-content">
+        &copy; 2024 SpinTrainer
+    </div>
+    <div class="social-links">
+        <a href="https://x.com/Spintrain5?s=09" target="_blank">
+            <img src="img/square-x-twitter.svg" alt="X">
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61561028947308" target="_blank">
+            <img src="img/square-facebook.svg" alt="Facebook">
+        </a>
+        <a href="https://www.instagram.com/spintrainer_2.5/" target="_blank">
+            <img src="img/instagram.svg" alt="Instagram">
+        </a>
+    </div>
+</footer>
+
+
+</body>
+</html>
