@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+    <title>SpinTrainer - ¿Cómo Usar la App?</title>
+    <style>
+    body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #FFFFFF;
+            color: #333;
+            overflow-x: hidden;
+        }
+        header {
+            background: linear-gradient(135deg, #11224E 0%, #F87B1B 100%);
+            color: #FFFFFF;
+            padding: 10px 10px 25px; /* Reducido el padding superior */
+            text-align: center;
+            position: relative;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 3em;
+        }
+        header p {
+            font-size: 1.2em;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #F87B1B;
+            padding: 15px 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav .nav-links {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        nav .nav-links li {
+            margin: 0 20px;
+        }
+        nav a {
+            color: #FFFFFF;
+            text-decoration: none;
+            font-weight: bold;
+            position: relative;
+            white-space: nowrap; /* Evita divisiones de línea */
+        }
+        nav a::after {
+            content: '';
+            display: block;
+            height: 3px;
+            width: 0;
+            background: #FFFFFF;
+            transition: width 0.3s;
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+        }
+        nav a:hover::after {
+            width: 100%;
+        }
+        nav .menu-icon {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            justify-content: center; /* Centrar verticalmente los elementos */
+            align-items: flex-end; /* Alinear a la derecha */
+        }
+        nav .menu-icon div {
+            width: 25px;
+            height: 3px;
+            background: #FFFFFF;
+            margin: 4px 0;
+            transition: background-color 0.3s; /* Agrega una transición para el cambio de color */
+        }
+        nav .menu-icon div:hover {
+            background: #11224E; /* Cambia el color al pasar el ratón */
+            transition: background-color 0.3s; /* Añade una transición */
+        }
+        h2 {
+            font-size: 2rem; 
+        }
+
+        h3 {
+            font-size: 1.75rem; 
+        }
+        h4 {
+            font-size: 1.3rem; 
+        }
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.container1 {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+.container2 {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 5px 20px;
+}
+
+.container1 section {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.container1 section:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.1);
+}
+.container1 section:nth-child(even) {
+    background: #FFF;
+}
+
+.section-title {
+    color: #F87B1B;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+    border-bottom: 4px solid #F87B1B;
+    display: inline-block;
+    position: relative;
+    animation: slideIn 1.5s ease-out;
+}
+
+.section-subtitle {
+    color: #F87B1B;
+    margin-bottom: 10px;
+    border-bottom: 4px solid #F87B1B;
+    display: inline-block;
+    position: relative;
+    animation: slideIn 1s ease-out;
+}
+.section-subtitle1 {
+    color: #0b0682;
+    margin-bottom: 10px;
+    border-bottom: 4px solid #0b0682;
+    display: inline-block;
+    position: relative;
+    animation: slideIn 1s ease-out;
+}
+
+section {
+    margin-bottom: 50px;
+    animation: fadeInUp 1s ease-out;
+}
+
+section p {
+    line-height: 1.6;
+}
+
+footer {
+    background-color: #11224E;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 15px 0;
+    position: relative;
+    width: 100%;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-content {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+.social-links {
+    margin-top: 10px;
+}
+
+.social-links a {
+    margin: 0 10px;
+    display: inline-block;
+}
+
+.social-links img {
+    width: 24px; /* Ajusta el tamaño del icono según sea necesario */
+    height: 24px;
+    vertical-align: middle;
+    transition: transform 0.3s;
+}
+
+.content-container {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    background: linear-gradient(135deg, #11224E 0%, #F87B1B 100%);
+}
+
+.content-container:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.1);
+}
+
+.images-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.images-container1 {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.feature-content {
+    text-align: left;
+    padding: 1px;
+}
+
+.feature-title {
+    color: #11224E;
+}
+
+.feature-description {
+    text-align: justify;
+}
+
+.imagen {
+    background: white;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    text-align: center;
+    flex: 1;
+    max-width: calc(33.33% - 20px);
+}
+.imagen1 {
+    background: white;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    text-align: center;
+    flex: 1;
+    max-width: calc(150% - 200px); /* Ajusta el tamaño de la imagen */
+    margin-bottom: 20px; /* Añade margen inferior para separar las filas */
+}
+
+.imagen img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    max-width: 100%;
+    max-height: 500px;
+    border-radius: 5px;
+}
+.imagen1 img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 5px;
+}
+
+a {
+    color: #F87B1B;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #11224E;
+}
+
+.social-links a:hover img {
+    transform: scale(1.1); /* Efecto de agrandar el icono al pasar el cursor */
+}
+
+.logo {
+    max-width: 250px; /* Ajusta este valor para hacer la imagen más grande o más pequeña */
+    width: 100%;
+    height: auto;
+    margin-top: 0; /* Asegura que no haya margen superior */
+}
+/* Animaciones */
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    header h1 {
+        font-size: 2em;
+    }
+    header p {
+        font-size: 1em;
+        text-align: justify;
+    }
+    nav .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background: rgba(248, 123, 27, 0.8); /* Fondo semi-transparente del color #F87B1B */
+        z-index: 999;
+    }
+    nav .nav-links.active {
+        display: flex;
+    }
+    nav .menu-icon {
+        display: flex;
+    }
+    nav .nav-links li {
+        text-align: center;
+        margin: 10px 0;
+    }
+    .container {
+        padding: 20px 10px;
+    }
+    .images-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .imagen {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+    .footer-content {
+        transform: none;
+    }
+}   
+    </style>
+    <script>
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+    </script>
+</head>
+<body>
+
+    <header>
+        <img src="img/logo.png" alt="SpinTrainer Logo" class="logo">
+    </header>
+    
+    <nav>
+        <div class="menu-icon" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="como-usar.html">¿Cómo Usar?</a></li>
+            <li><a href="como-entrenar.html">¿Cómo Entrenar?</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+        </ul>
+    </nav>
+    <div class="container1">
+        <section>
+            <h1 class="section-title">Bienvenido a la guía de uso de SpinTrainer</h1>
+            <p>Descubre cómo nuestra aplicación puede transformar tus sesiones de spinning. En esta sección, te guiaremos paso a paso para que puedas aprovechar todas las funcionalidades que SpinTrainer tiene para ofrecerte, garantizando una experiencia de entrenamiento óptima y personalizada.</p>
+        </section>
+    </div> 
+    <div class="container2">
+        <section>
+            <h2 class="section-subtitle1">Teléfonos Móviles</h2>
+        </section>
+    </div>
+<div class="container">
+    <section id="suscribete" class="content-container">
+        <h3 class="section-subtitle">Registrarse</h3>
+            <div class="container images-container">
+                <div class="imagen"data-aos="fade-up">
+                    <img src="img/3 (1).Jpg" alt="">
+                    <div class="feature-content">
+                        <h4 class="feature-title">Login:</h4>
+                        <p class="feature-description">Esta parte permite a los usuarios ya registrados acceder a la aplicación mediante la introducción de un correo electrónico o nombre de usuario y una contraseña.</p>
+                    </div>
+                </div>
+                <div class="imagen"data-aos="fade-up">
+                    <img src="img/3 (2).jpg" alt="">
+                    <div class="feature-content">
+                        <h4 class="feature-title">Registro de usuario:</h4>
+                        <div class="feature-description">Para registrarse, ingrese datos personales como nombre, apellido, número de teléfono y correo electrónico. Luego elija un nombre de usuario y contraseña. Finalmente, seleccione entre los roles de administrador o entrenador para su cuenta.</div>
+                    </div>
+                </div>
+                <div class="imagen"data-aos="fade-up">
+                    <img src="img/3 (3).jpg" alt="">
+                    <div class="feature-content">
+                        <h4 class="feature-title">Recuperación de contraseña y usuario:</h4>
+                        <div class="feature-description">De ser necesario, la aplicación también cuenta con un respaldo para recuperar contraseña y recuperar usuario mediante un código que se enviará al correo electrónico.</div>
+                    </div>
+                </div>
+            </div>
+     </section>
+</div>
+<div class="container">
+    <section id="suscribete" class="content-container">
+            <h3 class="section-subtitle">Menú Principal</h3>
+            <div class="container images-container">
+                <div class="imagen"data-aos="fade-up">
+                    <img src="img/3 (7).jpg" alt="">
+                    <div class="feature-content">
+                        <h4 class="feature-title">Inicio:</h4>
+                        <div class="feature-description">La pantalla de inicio es el primer punto de acceso al abrir la aplicación, donde el usuario puede ver una lista de rutinas guardadas y buscar rutinas específicas por nombre. Incluye una lista de todas las rutinas guardadas para fácil acceso y una barra de búsqueda en la parte superior para localizar rápidamente rutinas ingresando su nombre.</div>
+                    </div>
+                </div>
+                <div class="imagen"data-aos="fade-up">
+                    <img src="img/3 (9).jpg" alt="">
+                    <div class="feature-content">
+                        <h4 class="feature-title">Sección de rutina:</h4>
+                        <div class="feature-description">Cuando un usuario selecciona una rutina desde la pantalla de inicio, es redirigido a esta pantalla que presenta un menú con opciones para gestionar la rutina seleccionada, incluyendo duplicar para crear una copia, modificar para editar los detalles, y eliminar para borrar la rutina.</div>
+                    </div>
+                </div>
+                <div class="imagen"data-aos="fade-up">
+                    <img src="img/3 (8).jpg" alt="">
+                    <div class="feature-content">
+                        <h4 class="feature-title">Menú:</h4>
+                        <div class="feature-description">En la esquina superior izquierda de la aplicación, un ícono de menú despliega varias opciones de navegación y configuración al ser seleccionado, permitiendo al usuario volver al menú principal, acceder y editar su perfil, obtener ayuda a través de recursos de soporte, y cerrar sesión o salir de la aplicación.</div>
+                    </div>
+                </div>
+            </div>
+    </section>
+</div>
+<div class="container">
+    <section id="suscribete" class="content-container">
+            <h3 class="section-subtitle">Creación de una Sesión</h3>
+            <div class="container images-container">
+                <div class="imagen"data-aos="fade-up">
+                    <img src="img/3 (4).jpg" alt="">
+                    <div class="feature-content">
+                        <h4 class="feature-title">Nombre de la Sesión:</h4>
+                        <div class="feature-description"> En esta primera pantalla del proceso de creación de una sesión, el usuario establece los detalles básicos de la sesión, incluyendo el nombre de la sesión, la fecha y hora de inicio, y la duración.</div>
+                    </div>
+                </div>
+                <div class="imagen"data-aos="fade-up">
+                    <img src="img/3 (5).jpg" alt="">
+                    <div class="feature-content">
+                        <h4 class="feature-title">Datos de Ejercicio:</h4>
+                        <div class="feature-description"> En esta pantalla, el usuario introduce detalles específicos del ejercicio que se realizará, incluyendo el tipo de ejercicio, la posición de las manos, los valores de Rendimiento Percibido de Esfuerzo (RPM) medio y máximo, y la zona de energía en la que se trabajará.</div>
+                    </div>
+                </div>
+                <div class="imagen"data-aos="fade-up">
+                    <img src="img/3 (6).jpg" alt="">
+                    <div class="feature-content">
+                        <h4 class="feature-title">Guardar Sesión:</h4>
+                        <div class="feature-description">En esta pantalla final del proceso de creación de una sesión, se muestra un resumen completo de todos los detalles ingresados, como el nombre, fecha, hora, duración y datos específicos del ejercicio, junto con una opción para guardar y confirmar la sesión.</div>
+                    </div>
+                </div>
+            </div>
+    </section>
+</div>
+<div class="container2">
+    <section>
+        <h2 class="section-subtitle1">Pantallas de Televisión</h2>
+    </section>
+</div>
+<div class="container">
+    <section id="suscribete" class="content-container">
+            <h3 class="section-subtitle">Selección de Perfil</h3>
+            <div class="container images-container1">
+                <div class="imagen1"data-aos="fade-up">
+                    <img src="img/4 (1).jpg" alt="">
+                    <div class="feature-content">
+                        <h4 class="feature-title">Perfiles:</h4>
+                        <div class="feature-description">Los usuarios seleccionar su perfil de entrenador mostrando fotos y nombres de los entrenadores registrados en la aplicación.
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+</div>
+<div class="container">
+    <section id="suscribete" class="content-container">
+            <h3 class="section-subtitle">PIN de Usuario</h3>
+            <div class="container images-container1">
+                <div class="imagen1"data-aos="fade-up">
+                    <img src="img/4 (5).jpg" alt="">
+                    <div class="feature-content">
+                        <h4 class="feature-title">Seguridad:</h4>
+                        <div class="feature-description"> Después de seleccionar un perfil, el usuario debe ingresar un PIN de usuario en esta pantalla para verificar su identidad, garantizando que solo los usuarios autorizados accedan a sus perfiles y a la información sensible almacenada en la aplicación.</div>
+                    </div>
+                </div>
+            </div>
+    </section>
+</div>
+<div class="container">
+    <section id="suscribete" class="content-container">
+            <h3 class="section-subtitle">Selección de Rutina</h3>
+            <div class="container images-container1">
+                <div class="imagen1"data-aos="fade-up">
+                    <img src="img/4 (2).jpg" alt="">
+                    <div class="feature-content">
+                        <h4 class="feature-title">Rutinas:</h4>
+                        <div class="feature-description">En esta pantalla se muestran todas las rutinas de entrenamiento guardadas, con su nombre y fecha de ejecución . El usuario puede buscar, filtrar y seleccionar rutinas específicas para iniciar la reproducción, facilitando el acceso rápido y la gestión eficiente de los entrenamientos.</div>
+                    </div>
+                </div>
+            </div>
+    </section>
+</div>
+<div class="container">
+    <section id="suscribete" class="content-container">
+            <h3 class="section-subtitle">Preproducción de rutina</h3>
+            <div class="container images-container1">
+                <div class="imagen1"data-aos="fade-up">
+                    <img src="img/4 (3).jpg" alt="">
+                    <div class="feature-content">
+                        <h4 class="feature-title">Iniciar:</h4>
+                        <div class="feature-description"> En esta pantalla, se reproduce la rutina seleccionada mostrando indicaciones detalladas como el tipo de movimiento, posición de las manos, valores de RPM mínimo y máximo, y el tiempo de cada ejercicio. El usuario recibe instrucciones visuales y detalladas para realizar el entrenamiento correctamente, optimizando los beneficios del ejercicio y reduciendo el riesgo de lesiones.</div>
+                    </div>
+                </div>
+            </div>
+    </section>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        AOS.init();
+    });
+
+    function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+    }
+</script>
+<footer>
+    <div class="footer-content">
+        &copy; 2024 SpinTrainer
+    </div>
+    <div class="social-links">
+        <a href="https://x.com/Spintrain5?s=09" target="_blank">
+            <img src="img/square-x-twitter.svg" alt="X">
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61561028947308" target="_blank">
+            <img src="img/square-facebook.svg" alt="Facebook">
+        </a>
+        <a href="https://www.instagram.com/spintrainer_2.5/" target="_blank">
+            <img src="img/instagram.svg" alt="Instagram">
+        </a>
+    </div>
+</footer>
+
+</body>
+</html>
+
